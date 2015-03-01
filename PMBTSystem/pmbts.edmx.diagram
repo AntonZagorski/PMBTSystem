@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e18ab35bbf7f42619177883a7f2d3504" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="pmbtsModel.Issue" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmbtsModel.IssueLogTime" Width="1.5" PointX="7.5" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmbtsModel.IssueStatus" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmbtsModel.IssueType" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmbtsModel.Login" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmbtsModel.Priority" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmbtsModel.Project" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pmbtsModel.UserType" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <AssociationConnector Association="pmbtsModel.FK_ISSUE_INCLUDE2_PRIORITY" ManuallyRouted="false" />
+        <AssociationConnector Association="pmbtsModel.FK_ISSUE_INCLUDE3_ISSUESTA" ManuallyRouted="false" />
+        <AssociationConnector Association="pmbtsModel.FK_ISSUE_INCLUDE4_PROJECT" ManuallyRouted="false" />
+        <AssociationConnector Association="pmbtsModel.FK_ISSUE_STORE_ISSUETYP" ManuallyRouted="false" />
+        <AssociationConnector Association="pmbtsModel.FK_ISSUELOG_ISSUELOGT_ISSUE" ManuallyRouted="false" />
+        <AssociationConnector Association="pmbtsModel.FK_ISSUELOG_ISSUELOGT_LOGIN" ManuallyRouted="false" />
+        <AssociationConnector Association="pmbtsModel.FK_LOGIN_INCLUDE1_USERTYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="pmbtsModel.Assignee" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
