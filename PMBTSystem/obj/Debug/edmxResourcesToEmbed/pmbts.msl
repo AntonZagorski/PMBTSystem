@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="pmbtsModelStoreContainer" CdmEntityContainer="pmbtsEntities">
+    <EntitySetMapping Name="Issues">
+      <EntityTypeMapping TypeName="pmbtsModel.Issue">
+        <MappingFragment StoreEntitySet="Issue">
+          <ScalarProperty Name="IssueID" ColumnName="IssueID" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+          <ScalarProperty Name="IssueTypeID" ColumnName="IssueTypeID" />
+          <ScalarProperty Name="IssueStatusID" ColumnName="IssueStatusID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Discription" ColumnName="Discription" />
+          <ScalarProperty Name="TimeEstimation" ColumnName="TimeEstimation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IssueLogTimes">
+      <EntityTypeMapping TypeName="pmbtsModel.IssueLogTime">
+        <MappingFragment StoreEntitySet="IssueLogTime">
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="IssueID" ColumnName="IssueID" />
+          <ScalarProperty Name="IssueTime" ColumnName="IssueTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IssueStatuses">
+      <EntityTypeMapping TypeName="pmbtsModel.IssueStatus">
+        <MappingFragment StoreEntitySet="IssueStatus">
+          <ScalarProperty Name="IssueStatusID" ColumnName="IssueStatusID" />
+          <ScalarProperty Name="IssueStatusName" ColumnName="IssueStatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IssueTypes">
+      <EntityTypeMapping TypeName="pmbtsModel.IssueType">
+        <MappingFragment StoreEntitySet="IssueType">
+          <ScalarProperty Name="IssueTypeID" ColumnName="IssueTypeID" />
+          <ScalarProperty Name="IssueType1" ColumnName="IssueType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="pmbtsModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="Login1" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Priorities">
+      <EntityTypeMapping TypeName="pmbtsModel.Priority">
+        <MappingFragment StoreEntitySet="Priority">
+          <ScalarProperty Name="PriorityID" ColumnName="PriorityID" />
+          <ScalarProperty Name="PriorityName" ColumnName="PriorityName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="pmbtsModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectDiscription" ColumnName="ProjectDiscription" />
+          <ScalarProperty Name="ProjectStartDate" ColumnName="ProjectStartDate" />
+          <ScalarProperty Name="ProjectFinishDate" ColumnName="ProjectFinishDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="pmbtsModel.UserType">
+        <MappingFragment StoreEntitySet="UserType">
+          <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+          <ScalarProperty Name="UserTypeName" ColumnName="UserTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Assignee" TypeName="pmbtsModel.Assignee" StoreEntitySet="Assignee">
+      <EndProperty Name="Login">
+        <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+      </EndProperty>
+      <EndProperty Name="Issue">
+        <ScalarProperty Name="IssueID" ColumnName="IssueID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

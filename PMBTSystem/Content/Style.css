@@ -1,0 +1,45 @@
+﻿body {
+
+    background-color: #808080;
+
+}
+
+.mainBlock {
+    top: 50%; /* Отступ в процентах от верхнего края окна */
+	left: 50%; /* Отступ в процентах от левого края окна */
+	width: 450px; /* Ширина блока */
+	height: 450px; /* Высота блока */
+	position: absolute; /* Абсолютное позиционирование блока */
+    margin-top: -225px; /* Отрицательный отступ от верхнего края страницы, должен равняться половине высоты блока со знаком минус */
+	margin-left: -225px;
+    border: 2px solid #e50202;
+}
+
+
+.btnLogin{
+    width:40%;
+    height:15%;
+    font-family: "franklin-gothic-urw",sans-serif;
+    transition: background-color 300ms ease-out 0s;
+    background: #000;
+    color: #FFF;
+    border: none;
+    line-height: 50px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+button:hover {
+    background: #FFF;
+    color: #000;
+}
+
+.textFieldLogin {    
+    width: 75%;
+    font-family: "freight-text-pro",serif !important;
+    font-style: italic;
+    font-size: 1em;
+    padding-left: 1em;
+    color: #393939;
+    border: 1px solid #000;
+}

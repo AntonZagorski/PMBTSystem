@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="pmbtsModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="pmbtsEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Issues" EntityType="pmbtsModel.Issue" />
+    <EntitySet Name="IssueLogTimes" EntityType="pmbtsModel.IssueLogTime" />
+    <EntitySet Name="IssueStatuses" EntityType="pmbtsModel.IssueStatus" />
+    <EntitySet Name="IssueTypes" EntityType="pmbtsModel.IssueType" />
+    <EntitySet Name="Logins" EntityType="pmbtsModel.Login" />
+    <EntitySet Name="Priorities" EntityType="pmbtsModel.Priority" />
+    <EntitySet Name="Projects" EntityType="pmbtsModel.Project" />
+    <EntitySet Name="UserTypes" EntityType="pmbtsModel.UserType" />
+    <AssociationSet Name="FK_ISSUE_INCLUDE2_PRIORITY" Association="pmbtsModel.FK_ISSUE_INCLUDE2_PRIORITY">
+      <End Role="Priority" EntitySet="Priorities" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ISSUE_INCLUDE3_ISSUESTA" Association="pmbtsModel.FK_ISSUE_INCLUDE3_ISSUESTA">
+      <End Role="IssueStatus" EntitySet="IssueStatuses" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ISSUE_INCLUDE4_PROJECT" Association="pmbtsModel.FK_ISSUE_INCLUDE4_PROJECT">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ISSUE_STORE_ISSUETYP" Association="pmbtsModel.FK_ISSUE_STORE_ISSUETYP">
+      <End Role="IssueType" EntitySet="IssueTypes" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ISSUELOG_ISSUELOGT_ISSUE" Association="pmbtsModel.FK_ISSUELOG_ISSUELOGT_ISSUE">
+      <End Role="Issue" EntitySet="Issues" />
+      <End Role="IssueLogTime" EntitySet="IssueLogTimes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ISSUELOG_ISSUELOGT_LOGIN" Association="pmbtsModel.FK_ISSUELOG_ISSUELOGT_LOGIN">
+      <End Role="Login" EntitySet="Logins" />
+      <End Role="IssueLogTime" EntitySet="IssueLogTimes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LOGIN_INCLUDE1_USERTYPE" Association="pmbtsModel.FK_LOGIN_INCLUDE1_USERTYPE">
+      <End Role="UserType" EntitySet="UserTypes" />
+      <End Role="Login" EntitySet="Logins" />
+    </AssociationSet>
+    <AssociationSet Name="Assignee" Association="pmbtsModel.Assignee">
+      <End Role="Login" EntitySet="Logins" />
+      <End Role="Issue" EntitySet="Issues" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Issue">
+    <Key>
+      <PropertyRef Name="IssueID" />
+    </Key>
+    <Property Name="IssueID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" />
+    <Property Name="PriorityID" Type="Int32" />
+    <Property Name="IssueTypeID" Type="Int32" />
+    <Property Name="IssueStatusID" Type="Int32" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="Discription" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="TimeEstimation" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Priority" Relationship="pmbtsModel.FK_ISSUE_INCLUDE2_PRIORITY" FromRole="Issue" ToRole="Priority" />
+    <NavigationProperty Name="IssueStatu" Relationship="pmbtsModel.FK_ISSUE_INCLUDE3_ISSUESTA" FromRole="Issue" ToRole="IssueStatus" />
+    <NavigationProperty Name="Project" Relationship="pmbtsModel.FK_ISSUE_INCLUDE4_PROJECT" FromRole="Issue" ToRole="Project" />
+    <NavigationProperty Name="IssueType" Relationship="pmbtsModel.FK_ISSUE_STORE_ISSUETYP" FromRole="Issue" ToRole="IssueType" />
+    <NavigationProperty Name="IssueLogTimes" Relationship="pmbtsModel.FK_ISSUELOG_ISSUELOGT_ISSUE" FromRole="Issue" ToRole="IssueLogTime" />
+    <NavigationProperty Name="Logins" Relationship="pmbtsModel.Assignee" FromRole="Issue" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="IssueLogTime">
+    <Key>
+      <PropertyRef Name="LoginID" />
+      <PropertyRef Name="IssueID" />
+      <PropertyRef Name="IssueTime" />
+    </Key>
+    <Property Name="LoginID" Type="Int32" Nullable="false" />
+    <Property Name="IssueID" Type="Int32" Nullable="false" />
+    <Property Name="IssueTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Issue" Relationship="pmbtsModel.FK_ISSUELOG_ISSUELOGT_ISSUE" FromRole="IssueLogTime" ToRole="Issue" />
+    <NavigationProperty Name="Login" Relationship="pmbtsModel.FK_ISSUELOG_ISSUELOGT_LOGIN" FromRole="IssueLogTime" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="IssueStatus">
+    <Key>
+      <PropertyRef Name="IssueStatusID" />
+    </Key>
+    <Property Name="IssueStatusID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="IssueStatusName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Issues" Relationship="pmbtsModel.FK_ISSUE_INCLUDE3_ISSUESTA" FromRole="IssueStatus" ToRole="Issue" />
+  </EntityType>
+  <EntityType Name="IssueType">
+    <Key>
+      <PropertyRef Name="IssueTypeID" />
+    </Key>
+    <Property Name="IssueTypeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="IssueType1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Issues" Relationship="pmbtsModel.FK_ISSUE_STORE_ISSUETYP" FromRole="IssueType" ToRole="Issue" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserTypeID" Type="Int32" />
+    <Property Name="Login1" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="IssueLogTimes" Relationship="pmbtsModel.FK_ISSUELOG_ISSUELOGT_LOGIN" FromRole="Login" ToRole="IssueLogTime" />
+    <NavigationProperty Name="UserType" Relationship="pmbtsModel.FK_LOGIN_INCLUDE1_USERTYPE" FromRole="Login" ToRole="UserType" />
+    <NavigationProperty Name="Issues" Relationship="pmbtsModel.Assignee" FromRole="Login" ToRole="Issue" />
+  </EntityType>
+  <EntityType Name="Priority">
+    <Key>
+      <PropertyRef Name="PriorityID" />
+    </Key>
+    <Property Name="PriorityID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="PriorityName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Issues" Relationship="pmbtsModel.FK_ISSUE_INCLUDE2_PRIORITY" FromRole="Priority" ToRole="Issue" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ProjectDiscription" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="ProjectStartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ProjectFinishDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Issues" Relationship="pmbtsModel.FK_ISSUE_INCLUDE4_PROJECT" FromRole="Project" ToRole="Issue" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="UserTypeName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Logins" Relationship="pmbtsModel.FK_LOGIN_INCLUDE1_USERTYPE" FromRole="UserType" ToRole="Login" />
+  </EntityType>
+  <Association Name="FK_ISSUE_INCLUDE2_PRIORITY">
+    <End Role="Priority" Type="pmbtsModel.Priority" Multiplicity="0..1" />
+    <End Role="Issue" Type="pmbtsModel.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priority">
+        <PropertyRef Name="PriorityID" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="PriorityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ISSUE_INCLUDE3_ISSUESTA">
+    <End Role="IssueStatus" Type="pmbtsModel.IssueStatus" Multiplicity="0..1" />
+    <End Role="Issue" Type="pmbtsModel.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IssueStatus">
+        <PropertyRef Name="IssueStatusID" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="IssueStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ISSUE_INCLUDE4_PROJECT">
+    <End Role="Project" Type="pmbtsModel.Project" Multiplicity="0..1" />
+    <End Role="Issue" Type="pmbtsModel.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ProjectID" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ISSUE_STORE_ISSUETYP">
+    <End Role="IssueType" Type="pmbtsModel.IssueType" Multiplicity="0..1" />
+    <End Role="Issue" Type="pmbtsModel.Issue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IssueType">
+        <PropertyRef Name="IssueTypeID" />
+      </Principal>
+      <Dependent Role="Issue">
+        <PropertyRef Name="IssueTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ISSUELOG_ISSUELOGT_ISSUE">
+    <End Role="Issue" Type="pmbtsModel.Issue" Multiplicity="1" />
+    <End Role="IssueLogTime" Type="pmbtsModel.IssueLogTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Issue">
+        <PropertyRef Name="IssueID" />
+      </Principal>
+      <Dependent Role="IssueLogTime">
+        <PropertyRef Name="IssueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ISSUELOG_ISSUELOGT_LOGIN">
+    <End Role="Login" Type="pmbtsModel.Login" Multiplicity="1" />
+    <End Role="IssueLogTime" Type="pmbtsModel.IssueLogTime" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="LoginID" />
+      </Principal>
+      <Dependent Role="IssueLogTime">
+        <PropertyRef Name="LoginID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LOGIN_INCLUDE1_USERTYPE">
+    <End Role="UserType" Type="pmbtsModel.UserType" Multiplicity="0..1" />
+    <End Role="Login" Type="pmbtsModel.Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Assignee">
+    <End Role="Login" Type="pmbtsModel.Login" Multiplicity="*" />
+    <End Role="Issue" Type="pmbtsModel.Issue" Multiplicity="*" />
+  </Association>
+</Schema>
