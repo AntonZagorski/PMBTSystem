@@ -1,4 +1,16 @@
-﻿body {
+﻿
+
+
+
+
+
+/*----------------------------------------------------------
+    --------------------------------------------------------
+                        LOGIN PAGE\
+        ----------------------------------------------------
+            ------------------------------------------------*/
+
+body {
 
     background-color: #808080;
 
@@ -7,18 +19,18 @@
 .mainBlock {
     top: 50%; /* Отступ в процентах от верхнего края окна */
 	left: 50%; /* Отступ в процентах от левого края окна */
-	width: 450px; /* Ширина блока */
-	height: 450px; /* Высота блока */
+	width: 500px; /* Ширина блока */
+	height: 300px; /* Высота блока */
 	position: absolute; /* Абсолютное позиционирование блока */
-    margin-top: -225px; /* Отрицательный отступ от верхнего края страницы, должен равняться половине высоты блока со знаком минус */
-	margin-left: -225px;
-    border: 2px solid #e50202;
+    margin-left: -250px;
+    margin-top: -150px; /* Отрицательный отступ от верхнего края страницы, должен равняться половине высоты блока со знаком минус */
+    border: 2px solid #717dc9;
 }
 
 
 .btnLogin{
-    width:40%;
-    height:15%;
+    width:80%;
+    height:60%;
     font-family: "franklin-gothic-urw",sans-serif;
     transition: background-color 300ms ease-out 0s;
     background: #000;
@@ -47,58 +59,44 @@ button:hover {
 
 /* ------------------------ table in login page -------------------- */
 
-.labUsername {
+.rowLabUsername {
     width:50%;
-    height:30px; 
-    background-color:#717dc9; 
-    padding:10px; 
-    text-align:center
-
+    height:100px; 
+    background-color:#808080; 
+    text-align:center;
 }
 
-.fieldUsername {
+.rowFieldUsername {
     width:50%;
-    height:30px; 
-    background-color:#00ffff; 
-    padding:10px; 
+    height:100px; 
+    background-color:#808080; 
     text-align:center
 }
 
-
-
-
-
-
-
-
-
-.left_col {
-    width:120px; 
-    height:260px; 
-    background-color:#dddddd; 
-    padding:15px; 
-    vertical-align:top
-
+.rowLabPassword {
+    width:50%;
+    height:100px; 
+    background-color:#808080; 
+    text-align:center
 }
 
-.center_col {
-    width:500px; 
-    background-color:#ffffff; 
-    padding:15px; 
-    vertical-align:top
-
+.rowFieldPassword {
+    width:50%;
+    height:100px; 
+    background-color:#808080; 
+    text-align:center
 }
 
-.right_col {
-    width:120px; 
-    background-color:#dddddd; 
-    padding:15px; 
-    vertical-align:top
-
+.rowChkRememberLogin {
+    width:50%;
+    height:100px; 
+    background-color:#808080; 
+    text-align:center
 }
-.footer {
-    width:100%; 
-    padding:10px 0 10px 20px; 
-    background-color:#717dc9; 
-    font-size:13px}
 
+.rowBtnLogin {
+    width:50%;
+    height:100px; 
+    background-color:#808080; 
+    text-align:center
+}

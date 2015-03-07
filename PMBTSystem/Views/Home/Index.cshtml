@@ -5,33 +5,40 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
     <link rel="stylesheet" type="text/css" href="~/Content/Style.css">
 </head>
+
 <body>
-    <input id="textFielfLogin" class="textFielfLogin">
-    <button id="btnLogin" class="btnLogin"> LOGIN </button>
 
     <div class="mainBlock">
 
-        <table cellpadding="0" cellspacing="0" width="450" align="center">
+        <table class="tableInMainBlock" cellpadding="0" cellspacing="0" width="500" align="center">
 
             <tr>
-                <td class="labUsername">Username</td>  <!--colspan="3"-->
-                <td class="fieldUsername">Textbox</td>
+                <td class="rowLabUsername">Username</td>
+                <td class="rowFieldUsername">
+                    <input id="textFielfLogin" class="textFielfLogin">
+                </td>
             </tr>
 
             <tr>
-                <td class="labPassword">Password</td>
-                <td class="fieldPassword">content content content content content content content content.</td>
+                <td class="rowLabPassword">Password</td>
+                <td class="rowFieldPassword">
+                    <input id="textFielfLogin" class="textFielfLogin">
+                </td>
             </tr>
-
+            
             <tr>
-                <td colspan="3" class="footer">&copy; all rights reserved</td>
+                <td class="rowChkRememberLogin">ChkRememberLogin</td>
+                <td class="rowBtnLogin">
+                    <button id="btnLogin" class="btnLogin"> LOGIN </button> 
+                </td>
             </tr>
-
+          
         </table> 
     </div>
 </body>
