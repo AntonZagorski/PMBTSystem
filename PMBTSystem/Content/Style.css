@@ -45,16 +45,32 @@ button:hover {
 }
 
 
-/* ------------------------ table on login page -------------------- */
+/* ------------------------ table in login page -------------------- */
 
-.header {
-    width:100%;
+.labUsername {
+    width:50%;
     height:30px; 
     background-color:#717dc9; 
-    padding:20px; 
+    padding:10px; 
     text-align:center
 
 }
+
+.fieldUsername {
+    width:50%;
+    height:30px; 
+    background-color:#00ffff; 
+    padding:10px; 
+    text-align:center
+}
+
+
+
+
+
+
+
+
 
 .left_col {
     width:120px; 
