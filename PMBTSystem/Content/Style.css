@@ -43,3 +43,46 @@ button:hover {
     color: #393939;
     border: 1px solid #000;
 }
+
+
+/* ------------------------ table on login page -------------------- */
+
+.header {
+    width:100%;
+    height:30px; 
+    background-color:#717dc9; 
+    padding:20px; 
+    text-align:center
+
+}
+
+.left_col {
+    width:120px; 
+    height:260px; 
+    background-color:#dddddd; 
+    padding:15px; 
+    vertical-align:top
+
+}
+
+.center_col {
+    width:500px; 
+    background-color:#ffffff; 
+    padding:15px; 
+    vertical-align:top
+
+}
+
+.right_col {
+    width:120px; 
+    background-color:#dddddd; 
+    padding:15px; 
+    vertical-align:top
+
+}
+.footer {
+    width:100%; 
+    padding:10px 0 10px 20px; 
+    background-color:#717dc9; 
+    font-size:13px}
+
