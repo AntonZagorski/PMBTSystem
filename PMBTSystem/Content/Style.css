@@ -20,10 +20,10 @@ body {
     top: 50%; /* Отступ в процентах от верхнего края окна */
 	left: 50%; /* Отступ в процентах от левого края окна */
 	width: 500px; /* Ширина блока */
-	height: 300px; /* Высота блока */
+	height: 250px; /* Высота блока */
 	position: absolute; /* Абсолютное позиционирование блока */
     margin-left: -250px;
-    margin-top: -150px; /* Отрицательный отступ от верхнего края страницы, должен равняться половине высоты блока со знаком минус */
+    margin-top: -125px; /* Отрицательный отступ от верхнего края страницы, должен равняться половине высоты блока со знаком минус */
     border: 2px solid #717dc9;
 }
 
@@ -46,57 +46,59 @@ button:hover {
     color: #000;
 }
 
-.textFieldLogin {    
+/* ------------------------ table in login page -------------------- */
+
+.rowLabUsername {
+    width:35%;
+    height:83px; 
+    background-color:#808080; 
+    text-align:center;
+}
+
+.rowFieldUsername {
+    width:65%;
+    height:83px; 
+    background-color:#808080; 
+    text-align:center
+}
+
+.rowLabPassword {
+    width:35%;
+    height:83px; 
+    background-color:#808080; 
+    text-align:center
+}
+
+.rowFieldPassword {
+    width:65%;
+    height:83px; 
+    background-color:#808080; 
+    text-align:center
+}
+
+.rowChkRememberLogin {
+    width:35%;
+    height:83px; 
+    background-color:#808080; 
+    text-align:center
+}
+
+.rowBtnLogin {
+    width:65%;
+    height:83px; 
+    background-color:#808080; 
+    text-align:center
+}
+
+
+.textFieldLogin {
     width: 75%;
+    height: 40%;
     font-family: "freight-text-pro",serif !important;
     font-style: italic;
     font-size: 1em;
     padding-left: 1em;
     color: #393939;
     border: 1px solid #000;
-}
-
-
-/* ------------------------ table in login page -------------------- */
-
-.rowLabUsername {
-    width:50%;
-    height:100px; 
-    background-color:#808080; 
-    text-align:center;
-}
-
-.rowFieldUsername {
-    width:50%;
-    height:100px; 
-    background-color:#808080; 
-    text-align:center
-}
-
-.rowLabPassword {
-    width:50%;
-    height:100px; 
-    background-color:#808080; 
-    text-align:center
-}
-
-.rowFieldPassword {
-    width:50%;
-    height:100px; 
-    background-color:#808080; 
-    text-align:center
-}
-
-.rowChkRememberLogin {
-    width:50%;
-    height:100px; 
-    background-color:#808080; 
-    text-align:center
-}
-
-.rowBtnLogin {
-    width:50%;
-    height:100px; 
-    background-color:#808080; 
-    text-align:center
+    transition: border 0.25s linear 0s, color 0.25s linear 0s, background-color 0.25s linear 0s;
 }
